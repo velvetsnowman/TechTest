@@ -22,5 +22,10 @@ class Datamanager < Sinatra::Base
     erb(:search_results)
   end
 
+  get '/updated_results' do
+    Datacontroller.check_errors
+    erb(:updated_results)
+  end
+
   run! if app_file == $PROGRAM_NAME
 end
