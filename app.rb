@@ -14,8 +14,12 @@ class Datamanager < Sinatra::Base
   end
 
   get '/search' do
-    @data_sets = Datacontroller.search(params['product'], params['customer'], params['measure'])
     erb(:search)
+  end
+
+  get '/search_results' do
+    @data_sets = Datacontroller.search(params['product'], params['customer'], params['measure'])
+    erb(:search_results)
   end
 
   run! if app_file == $PROGRAM_NAME
