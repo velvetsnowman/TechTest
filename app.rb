@@ -3,10 +3,19 @@ require './lib/datacontroller.rb'
 
 class Datamanager < Sinatra::Base
   enable :sessions
-  register Sinatra::Flash
 
   get '/' do
+    erb(:index)
+  end
 
+  get '/all' do
+    @data_sets = Datacontroller.get_all
+    erb(:all)
+  end
+
+  get '/search' do
+    @data_sets = Datacontroller.search(params['product'], params['customer'], params['measure'])
+    erb(:search)
   end
 
   run! if app_file == $PROGRAM_NAME
