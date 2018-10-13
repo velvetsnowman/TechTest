@@ -1,6 +1,14 @@
-<h2>Here you go </h2>
-<% @data_sets.each do |set| %>
-<div>
-<%= set.id %> <%= set.product %> <%= set.customer %> <%= set.measure %> <%= set.value %> <%= set.valid_from %> <%= set.valid_to %>
-</div>
+<% if @data_sets == [] %>
+  Sorry, nothing found
+<%else%>
+  <h2>Here you go </h2>
+  <% @data_sets.each do |set| %>
+    <div>
+    <%= set.id %> <%= set.product %> <%= set.customer %> <%= set.measure %> <%= set.value %> <%= set.valid_from %> <%= set.valid_to %>
+    </div>
+  <% end %>
 <% end %>
+<p>
+
+<button>Check for errors and automatically update</button>
+<button>Check for errors and manually update</button>

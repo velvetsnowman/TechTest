@@ -35,7 +35,7 @@ class Datacontroller
   def self.search(product, customer, measure)
 
     connection = PG.connect(dbname: 'product_data')
-    result = connection.exec("SELECT * FROM data WHERE product='#{product}' AND customer='#{customer}' AND measure='#{measure}' ORDER BY valid_to ASC")
+    result = connection.exec("SELECT * FROM data WHERE product='#{product}' AND customer='#{customer}' AND measure='#{measure}' ORDER BY valid_from ASC")
     result.map { |row| Datacontroller.new(row['id'],
                                           row['product'],
                                           row['customer'],
