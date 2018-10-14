@@ -18,12 +18,16 @@ class Datamanager < Sinatra::Base
   end
 
   get '/search_results' do
+    session[:product] = params['product']
+    session[:customer] = params['customer']
+    session[:measure] = params['measure']
     @data_sets = Datacontroller.search(params['product'], params['customer'], params['measure'])
     erb(:search_results)
   end
 
   get '/updated_results' do
     Datacontroller.check_errors
+    @data_sets = Datacontroller.search(session[:product], session[:customer], session[:measure])
     erb(:updated_results)
   end
 
