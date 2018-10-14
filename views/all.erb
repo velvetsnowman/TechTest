@@ -1,6 +1,33 @@
-<h2>Here you go </h2>
-<% @data_sets.each do |set| %>
-<div>
-<%= set.id %> <%= set.product %> <%= set.customer %> <%= set.measure %> <%= set.value %> <%= set.valid_from %> <%= set.valid_to %>
-</div>
-<% end %>
+<h2>Data</h2>
+<table>
+  <tr>
+    <th>Row ID</th>
+    <th>Product</th>
+    <th>Customer</th>
+    <th>Measure</th>
+    <th>Value</th>
+    <th>Valid From</th>
+    <th>Valid To</th>
+  </tr>
+  <% @data_sets.each do |set| %>
+    <tr>
+      <td><%= set.id %></td>
+      <td><%= set.product %></td>
+      <td><%= set.customer %></td>
+      <td><%= set.measure %></td>
+      <td><%= set.value %></td>
+      <td><%= set.valid_from %></td>
+      <td><%= set.valid_to %></td>
+    </tr>
+  <% end %>
+</table>
+
+<form action="/all_results" method="get">
+<input type="submit" value="Update all errors">
+</form>
+<form action="/" method="get">
+<input type="submit" value="Home">
+</form>
+<form action="/search" method="get">
+<input type="submit" value="Search">
+</form>

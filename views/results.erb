@@ -1,0 +1,41 @@
+<% if @data_sets == [] %>
+  Sorry, we couldn't match your query to any of the stored data. Please try again.
+  <form action="/search" method="get">
+  <input type="submit" value="New search">
+  </form>
+<%else%>
+  <h2>Data</h2>
+  <h3> <%= session[:measure] %> of <%= session[:product] %> for <%= session[:customer] %></h3>
+  <table>
+    <tr>
+      <th>Row ID</th>
+      <th>Product</th>
+      <th>Customer</th>
+      <th>Measure</th>
+      <th>Value</th>
+      <th>Valid From</th>
+      <th>Valid To</th>
+    </tr>
+    <% @data_sets.each do |set| %>
+      <tr>
+        <td><%= set.id %></td>
+        <td><%= set.product %></td>
+        <td><%= set.customer %></td>
+        <td><%= set.measure %></td>
+        <td><%= set.value %></td>
+        <td><%= set.valid_from %></td>
+        <td><%= set.valid_to %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<form action="/updated_results" method="get">
+<input type="submit" value="Check for errors and automatically update">
+</form>
+<form action="/all" method="get">
+<input type="submit" value="View All Data">
+</form>
+<form action="/search" method="get">
+<input type="submit" value="New Search">
+</form>
