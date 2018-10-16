@@ -1,3 +1,18 @@
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+</style>
+</head>
 <% if @data_sets == [] %>
   Sorry, we couldn't match your query to any of the stored data. Please try again.
   <form action="/search" method="get">
@@ -5,7 +20,7 @@
   </form>
 <%else%>
   <h2>Data</h2>
-  <h3> <%= session[:measure] %> of <%= session[:product] %> for <%= session[:customer] %></h3>
+  <h3 style="color:blue;"> <%= session[:measure] %> of <%= session[:product] %> for <%= session[:customer] %></h3>
   <table>
     <tr>
       <th>Row ID</th>
