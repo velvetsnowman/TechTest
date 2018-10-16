@@ -100,7 +100,7 @@ class Datacontroller
         row_id = data_set[i-1]["id"]
         connection.exec("UPDATE data
                         SET valid_to = '#{new_valid_to}',
-                        original_valid_to = '#{original_valid_to}'
+                        original_valid_to = '#{original_valid_to}',
                         time_updated = '#{time_now}'
                         WHERE id= #{row_id}")
       end
